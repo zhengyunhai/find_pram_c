@@ -1,0 +1,31 @@
+# Project: finfpramc
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ig_reduce.o c_of_exp.o
+LINKOBJ  = ig_reduce.o c_of_exp.o
+LIBS     = -L"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/lib" -L"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32/CNTL.a
+INCS     = -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/include" -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/include" -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/wheresoftlie/Dev-c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = finfpramc.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+ig_reduce.o: ig_reduce.cpp
+	$(CPP) -c ig_reduce.cpp -o ig_reduce.o $(CXXFLAGS)
+
+c_of_exp.o: c_of_exp.cpp
+	$(CPP) -c c_of_exp.cpp -o c_of_exp.o $(CXXFLAGS)
